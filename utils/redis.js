@@ -2,11 +2,11 @@ import { promisify } from 'util';
 import { createClient } from 'redis';
 
 /**
- * represents a Redis client
+ * Represents a Redis client.
  */
 class RedisClient {
   /**
-   * creates a new RedisClient instance
+   * Creates a new RedisClient instance.
    */
   constructor() {
     this.client = createClient();
@@ -21,7 +21,7 @@ class RedisClient {
   }
 
   /**
-   * checks whether client's connection to the Redis server is active
+   * Checks if this client's connection to the Redis server is active.
    * @returns {boolean}
    */
   isAlive() {
@@ -29,8 +29,8 @@ class RedisClient {
   }
 
   /**
-   * retrieves the value of a given key
-   * @param {string} key value of the item to retrieve
+   * Retrieves the value of a given key.
+   * @param {String} key The key of the item to retrieve.
    * @returns {String | Object}
    */
   async get(key) {
@@ -46,7 +46,7 @@ class RedisClient {
    */
   async set(key, value, duration) {
     await promisify(this.client.SETEX)
-    .bind(this.client)(key, duration, value);
+      .bind(this.client)(key, duration, value);
   }
 
   /**
