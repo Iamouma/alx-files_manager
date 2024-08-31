@@ -46,7 +46,7 @@ class RedisClient {
    */
   async set(key, value, duration) {
     await promisify(this.client.SETEX)
-    .bind(this.client)(key, durable, value);
+    .bind(this.client)(key, duration, value);
   }
 
   /**
