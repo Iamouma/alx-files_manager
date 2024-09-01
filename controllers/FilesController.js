@@ -135,6 +135,55 @@ export default class FilesController {
   }
 
   static async getShow(req, res) {
+        const token = req.header('X-Token');
+        const userId = await redisClient.get(`auth_${token}`);
+        
+        if (!userId) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        try {
+            const fileId = new ObjectId(req.params.id);
+            const file = await dbClient.db.collection('files').findOne({ _id: fileId, userId: ObjectId(userId) });
+
+            if (!file) {
+                return res.status(404).json({ error: 'Not found' });
+            }
+
+            return res.status(200).json(file);
+        } catch (error) {
+            return res.status(404).json({ error: 'Not found' });
+        }
+    }
+
+    // GET /files
+    static async getIndex(req, res) {
+        const token = req.header('X-Token');
+        const userId = await redisClient.get(`auth_${token}`);
+
+        if (!userId) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const parentId = req.query.parentId ? new ObjectId(req.query.parentId) : '0';
+        const page = parseInt(req.query.page, 10) || 0;
+        const pageSize = 20;
+        const skip = page * pageSize;
+
+        const query = { userId: ObjectId(userId), parentId: parentId };
+
+        const files = await dbClient.db.collection('files')
+            .find(query)
+            .skip(skip)
+            .limit(pageSize)
+            .toArray();
+
+        return res.status(200).json(files);
+    }
+}
+
+
+  /**static async getShow(req, res) {
     const { user } = req;
     const id = req.params ? req.params.id : NULL_ID;
     const userId = user._id.toString();
@@ -158,13 +207,13 @@ export default class FilesController {
         ? 0
         : file.parentId.toString(),
     });
-  }
+  }*/
 
   /**
    * Retrieves files associated with a specific user.
    * @param {Request} req The Express request object.
    * @param {Response} res The Express response object.
-   */
+   
   static async getIndex(req, res) {
     const { user } = req;
     const parentId = req.query.parentId || ROOT_FOLDER_ID.toString();
@@ -199,7 +248,7 @@ export default class FilesController {
         },
       ])).toArray();
     res.status(200).json(files);
-  }
+  }*/
 
   static async putPublish(req, res) {
     const { user } = req;
