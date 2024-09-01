@@ -180,7 +180,6 @@ export default class FilesController {
 
         return res.status(200).json(files);
     }
-}
 
 
   /**static async getShow(req, res) {
