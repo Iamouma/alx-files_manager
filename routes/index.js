@@ -18,5 +18,6 @@ router.get('/files/:id', xTokenAuthenticate, FilesController.getShow);
 router.get('/files', xTokenAuthenticate, FilesController.getIndex);
 router.put('/files/:id/publish', xTokenAuthenticate, FilesController.putPublish);
 router.put('/files/:id/unpublish', xTokenAuthenticate, FilesController.putUnpublish);
+router.get('/files/:id/data', FilesController.getFile);
 
 export default router;
