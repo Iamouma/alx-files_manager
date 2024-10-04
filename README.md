@@ -1,8 +1,8 @@
-Toggle navigation
+## Toggle navigation
 Curriculum
 Short Specializations
 Average: 140.71%
-0x04. Files manager
+## 0x04. Files manager
 Back-end
 JavaScript
 ES6
@@ -34,7 +34,7 @@ Of course, this kind of service already exists in the real life - it’s a learn
 
 Enjoy!
 
-Resources
+## Resources
 Read or watch:
 
 Node JS getting started
@@ -47,7 +47,7 @@ Bull
 Image thumbnail
 Mime-Types
 Redis
-Learning Objectives
+## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 how to create an API with Express
@@ -73,7 +73,7 @@ and…
 Don’t forget to run $ npm install when you have the package.json
 
 Tasks
-0. Redis utils
+### 0. Redis utils
 mandatory
 Inside the folder utils, create a file redis.js that contains the class RedisClient.
 
@@ -112,7 +112,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/redis.js
  
-1. MongoDB utils
+### 1. MongoDB utils
 mandatory
 Inside the folder utils, create a file db.js that contains the class DBClient.
 
@@ -170,7 +170,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/db.js
  
-2. First API
+### 2. First API
 mandatory
 Inside server.js, create the Express server:
 
@@ -204,7 +204,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: server.js, routes/index.js, controllers/AppController.js
  
-3. Create a new user
+### 3. Create a new user
 mandatory
 Now that we have a simple API, it’s time to add users to our database.
 
@@ -242,7 +242,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/, routes/index.js, controllers/UsersController.js
  
-4. Authenticate a user
+### 4. Authenticate a user
 mandatory
 In the file routes/index.js, add 3 new endpoints:
 
@@ -292,7 +292,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/, routes/index.js, controllers/UsersController.js, controllers/AuthController.js
  
-5. First file
+### 5. First file
 mandatory
 In the file routes/index.js, add a new endpoint:
 
@@ -381,7 +381,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/, routes/index.js, controllers/FilesController.js
  
-6. Get and list file
+### 6. Get and list file
 mandatory
 In the file routes/index.js, add 2 new endpoints:
 
@@ -424,7 +424,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/, routes/index.js, controllers/FilesController.js
  
-7. File publish/unpublish
+### 7. File publish/unpublish
 mandatory
 In the file routes/index.js, add 2 new endpoints:
 
@@ -465,7 +465,7 @@ Repo:
 GitHub repository: alx-files_manager
 File: utils/, routes/index.js, controllers/FilesController.js
  
-8. File data
+### 8. File data
 mandatory
 In the file routes/index.js, add one new endpoint:
 
@@ -504,7 +504,7 @@ Repo:
 
 GitHub repository: alx-files_manager
 File: utils/, routes/index.js, controllers/FilesController.js
-9. Image Thumbnails
+### 9. Image Thumbnails
 mandatory
 Update the endpoint POST /files endpoint to start a background processing for generating thumbnails for a file of type image:
 
